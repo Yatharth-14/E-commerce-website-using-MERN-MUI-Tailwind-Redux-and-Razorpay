@@ -22,9 +22,11 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
-import { Button, Grid, Rating } from "@mui/material";
+import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
 import ProductReviewCard from "./ProductReviewCard";
-// import {Grid} from 
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
+import HomeSectionCarousel from "../HomeSectionCarousel/HomeSectionCarousel";
+// import {Grid} from
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -58,12 +60,10 @@ const product = {
     { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
   ],
   sizes: [
-
     { name: "S", inStock: true },
     { name: "M", inStock: true },
     { name: "L", inStock: true },
     { name: "XL", inStock: true },
-
   ],
   description:
     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
@@ -87,7 +87,7 @@ export default function ProductDetails() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white lg:px-20">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
@@ -139,19 +139,20 @@ export default function ProductDetails() {
               />
             </div>
             <div className="flex flex-wrap space-x-5 justify-center">
-              {product.images.map((item)=><div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>)}
+              {product.images.map((item) => (
+                <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              ))}
             </div>
           </div>
           {/* Product info */}
           <div className="lg:col-span-1 max-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-24">
             <div className="lg:col-span-2 ">
-                
               <h1 className="text-lg lg:text-xl font-semibold text-gray-900">
                 ZARA
               </h1>
@@ -164,9 +165,7 @@ export default function ProductDetails() {
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
               <div className="flex space-x-5 items-center text-lg lg:text-xl text-gray-900 mt-6">
-                <p className="font-semibold">
-                    &#8377;199
-                </p>
+                <p className="font-semibold">&#8377;199</p>
                 <p className="opacity-50 line-through">&#8377;211</p>
                 <p className="text-green-600 font-semibold">5% Off</p>
               </div>
@@ -174,21 +173,19 @@ export default function ProductDetails() {
               {/* Reviews */}
               <div className="mt-6">
                 <div className="flex items-center space-x-3">
-                    <Rating name="read-only" value={4.5} readOnly />
-                    <p className="opacity-50 text-sm">56540 Ratings</p>
-                    <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">3850 Reviews</p>
+                  <Rating name="read-only" value={4.5} readOnly />
+                  <p className="opacity-50 text-sm">56540 Ratings</p>
+                  <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                    3850 Reviews
+                  </p>
                 </div>
-              
               </div>
 
               <form className="mt-10">
-                
-
                 {/* Sizes */}
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                   
                   </div>
 
                   <RadioGroup
@@ -259,8 +256,16 @@ export default function ProductDetails() {
                     </div>
                   </RadioGroup>
                 </div>
-                <Button variant="contained" sx={{px:'2rem',py:'1rem',bgcolor:'#9155fd',my:'1rem'}}>
-                    Add To Cart
+                <Button
+                  variant="contained"
+                  sx={{
+                    px: "2rem",
+                    py: "1rem",
+                    bgcolor: "#9155fd",
+                    my: "1rem",
+                  }}
+                >
+                  Add To Cart
                 </Button>
               </form>
             </div>
@@ -303,18 +308,135 @@ export default function ProductDetails() {
             </div>
           </div>
         </section>
-{/* ratings and reviews */}
+        {/* ratings and reviews */}
         <section>
-            <h1 className="font-semibold text-lg pb-4">Recent Review & Rating</h1>
-            <div className="border p-5">
-                <Grid container spacing={7}>
-                    <Grid item xs={7}>
-                        <div className="space-y-5">
-                            {[1,1,1].map((item)=><ProductReviewCard></ProductReviewCard>)}
-                        </div>
+          <h1 className="font-semibold text-lg pb-4">Recent Review & Rating</h1>
+          <div className="border p-5">
+            <Grid container spacing={7}>
+              <Grid item xs={7}>
+                <div className="space-y-5">
+                  {[1, 1, 1].map((item) => (
+                    <ProductReviewCard></ProductReviewCard>
+                  ))}
+                </div>
+              </Grid>
+
+              <Grid item xs={5}>
+                <h1 className="text-xl font-semibold pb-2">Product Ratings</h1>
+                <div className="flex items-center space-x-3">
+                  <Rating name="read-only" value={4.6} precision={0.5}></Rating>
+                  <p className="opacity-60">59803 Ratings</p>
+                </div>
+                <Box className="mt-5 space-y-3">
+                  <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <Grid item xs={3}>
+                      <p>Excellent</p>
                     </Grid>
-                </Grid>
-            </div>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={40}
+                        color="success"
+                      ></LinearProgress>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <Grid item xs={3}>
+                      <p>Very Good</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={30}
+                        color="success"
+                      ></LinearProgress>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <Grid item xs={3}>
+                      <p>Good</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={25}
+                      ></LinearProgress>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <Grid item xs={3}>
+                      <p>Average</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={20}
+                        color="warning"
+                      ></LinearProgress>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <Grid item xs={3}>
+                      <p>Poor</p>
+                    </Grid>
+                    <Grid item xs={7}>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={15}
+                        color="error"
+                      ></LinearProgress>
+                    </Grid>
+                  </Grid>
+                </Box>
+              </Grid>
+            </Grid>
+          </div>
+        </section>
+
+        {/* similar products */}
+        <section className="pt-10">
+          <h1 className="py-5 text-xl font-bold">Similar Products</h1>
+          <div className="flex flex-wrap space-y-5 border">
+
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+            <HomeSectionCard></HomeSectionCard>
+          </div>
         </section>
       </div>
     </div>

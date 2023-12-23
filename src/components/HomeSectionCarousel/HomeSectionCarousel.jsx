@@ -4,7 +4,7 @@ import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import { Button } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-const HomeSectionCarousel = () => {
+const HomeSectionCarousel = ({sectionName}) => {
   const [activeIndex, setActiveIndex]=useState(0);
 
   const responsive = {
@@ -24,12 +24,12 @@ const HomeSectionCarousel = () => {
 
   return (
     <div className="border">
+      <h2 className="text-2xl font-extrabold text-gray-800 py-5 ">{sectionName}</h2>
       <div className="relative p-5">
         <AliceCarousel
           disableButtonsControls
           // autoPlay
           // autoPlayInterval={2000}
-          infinite
           items={items}
           responsive={responsive}
           disableDotsControls

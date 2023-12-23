@@ -42,11 +42,11 @@ export const singleFilter =[
         id: 'price',
         name: 'Price',
         options: [
-            {value: '159-399', label: '&#8377;159 to &#8377;399'},
-            {value: '399-999', label: '&#8377;399 to &#8377;999'},
-            {value: '999-1999', label: '&#8377;999 to &#8377;1999'},
-            {value: '1999-2999', label: '&#8377;1999 to &#8377;2999'},
-            {value: '3999-4999', label: '&#8377;3999 to &#8377;4999'},
+            {value: '159-399', label: `\u20B9159 to \u20B9399`},
+            {value: '399-999', label: '\u20B9399 to \u20B9999'},
+            {value: '999-1999', label: '\u20B9999 to \u20B91999'},
+            {value: '1999-2999', label: '\u20B91999 to \u20B92999'},
+            {value: '3999-4999', label: '\u20B93999 to \u20B94999'},
         ]
     },
     {

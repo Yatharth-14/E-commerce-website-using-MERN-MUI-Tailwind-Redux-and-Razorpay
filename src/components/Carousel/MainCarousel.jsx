@@ -9,7 +9,7 @@ const MainCarousel = () => {
       src={item.image}
       role="presentation"
       alt="This is an image."
-      className="cursor-pointer"
+      className="cursor-pointer z-10"
     />
   ));
 
