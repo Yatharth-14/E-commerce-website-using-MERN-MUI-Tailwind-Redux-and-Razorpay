@@ -1,8 +1,14 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomeSectionCard = () => {
+  const navigate = useNavigate();
+
+  const handleHomeSectionCardClick=()=>{
+    navigate('/product')
+  }
   return (
-    <div
+      <div onClick={handleHomeSectionCardClick}
       className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg 
     overflow-hidden w-[15rem] mx-3 border"
     >
@@ -19,6 +25,7 @@ const HomeSectionCard = () => {
         <p className="mt-2 text-sm text-gray-500">Men solid pure cotton straight kurta</p>
       </div>
     </div>
+    
   );
 };
 

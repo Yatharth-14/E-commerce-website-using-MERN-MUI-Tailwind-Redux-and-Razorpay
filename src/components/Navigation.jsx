@@ -6,6 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -143,6 +144,12 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCategoryClick = ()=>{
+    navigate('/product');
+    // close();
+  }
 
   return (
     <div className="bg-white">
@@ -445,12 +452,12 @@ export default function Navigation() {
                                                 key={item.name}
                                                 className="flex"
                                               >
-                                                <a
-                                                  href={item.href}
-                                                  className="hover:text-gray-800"
+                                                <p 
+                                                  onClick={handleCategoryClick}
+                                                  className="cursor-pointer hover:text-gray-800"
                                                 >
                                                   {item.name}
-                                                </a>
+                                                </p>
                                               </li>
                                             ))}
                                           </ul>

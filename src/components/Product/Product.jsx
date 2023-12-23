@@ -21,7 +21,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -372,14 +372,9 @@ export default function Example() {
               {/* Product grid */}
               <div className="lg:col-span-4 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5 ">
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
+
+                  {[1,1,1,1,1,1,1,1].map((item)=><ProductCard></ProductCard>)}
+    
                 </div>
               </div>
             </div>
