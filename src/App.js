@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import OrderCard from './components/Order/OrderCard';
 import Order from './components/Order/Order';
+import OrderDetails from './components/Order/OrderDetails';
 function App() {
   return (
     <div className="">
@@ -19,7 +20,8 @@ function App() {
         {/* <ProductDetails></ProductDetails> */}
         {/* <Cart></Cart> */}
         {/* <Checkout></Checkout> */}
-        <Order></Order>
+        {/* <Order></Order> */}
+        <OrderDetails></OrderDetails>
         </div>
       <Footer></Footer>
     </div>
