@@ -18,7 +18,7 @@ export default function CustomerRoute() {
       </div>
       
         <Routes>
-          <Route path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="*" element={<HomePage></HomePage>}></Route>
           <Route path="/cart" element={<Cart></Cart>}></Route>
           <Route path="/product" element={<Product></Product>}></Route>
           <Route

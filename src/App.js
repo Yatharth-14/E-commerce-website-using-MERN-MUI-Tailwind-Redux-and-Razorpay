@@ -16,10 +16,9 @@ function App() {
   return (
     <div className="">
       <>
-      <Cart></Cart>
-        {/* <Routes>
-          <Route path="/" element={<CustomerRoute></CustomerRoute>}></Route>
-        </Routes> */}
+        <Routes>
+          <Route path="*" element={<CustomerRoute></CustomerRoute>}></Route>
+        </Routes>
       </>
     </div>
   );
